@@ -13,15 +13,8 @@ public class CacheDecorator extends CharCounterDecorator {
 
 	@Override
 	public Map<Character, Integer> countChars(String text) {
-		Map<Character, Integer> result;
-		if (cache.containsKey(text)) {
-			result = cache.get(text);
-		} else {
-			result = charCounter.countChars(text);
-		}
-		// result = cache.getOrDefault(text, charCounter.countChars(text));
-		
-		cache.putIfAbsent(text, result);
+		Map<Character, Integer> result = cache.computeIfAbsent(text, k -> charCounter.countChars(text));
+
 		return result;
 	}
 

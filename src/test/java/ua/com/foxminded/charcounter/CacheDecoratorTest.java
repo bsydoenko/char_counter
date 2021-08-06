@@ -12,17 +12,17 @@ import org.mockito.junit.jupiter.MockitoExtension;
 class CacheDecoratorTest {
 
 	@Mock
-	UniqueCharacterCounter uniqueCharacterCounter;
+	CharCounter charCounter;
 	
 	@InjectMocks
 	CacheDecorator cacheDecorator;
 	
 	@Test
-	void test() {
+	void givenTextTwice_whenCachedCharCounter_thenCharCounterCalledOnce() {
 		String testString = "Hello world!!!";
-		for (int i = 0; i < 2; i++) {
-			cacheDecorator.countChars(testString);
-		}
-		verify(uniqueCharacterCounter).countChars(testString);
+		
+		cacheDecorator.countChars(testString);
+		cacheDecorator.countChars(testString);
+		verify(charCounter).countChars(testString);
 	}
 }

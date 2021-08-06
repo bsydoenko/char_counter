@@ -28,7 +28,6 @@ public class UniqueCharacterCounterTest {
 	@Test
 	void givenWord_whenCharCounter_thenResult() {
 		Map<Character, Integer> expected = new LinkedHashMap<>();
-		{
 			expected.put('f', 1);
 			expected.put('o', 1);
 			expected.put('x', 1);
@@ -37,7 +36,6 @@ public class UniqueCharacterCounterTest {
 			expected.put('n', 1);
 			expected.put('d', 2);
 			expected.put('e', 1);
-		}
 
 		assertEquals(expected, uniqueCharCounter.countChars("foxminded"));
 	}
@@ -45,7 +43,6 @@ public class UniqueCharacterCounterTest {
 	@Test
 	void givenWordWithSymbols_whenCharCounter_thenResult() {
 		Map<Character, Integer> expected = new LinkedHashMap<>();
-		{
 			expected.put('@', 1);
 			expected.put('7', 3);
 			expected.put('f', 1);
@@ -57,7 +54,6 @@ public class UniqueCharacterCounterTest {
 			expected.put('d', 2);
 			expected.put('e', 1);
 			expected.put('!', 3);
-		}
 
 		assertEquals(expected, uniqueCharCounter.countChars("@777foxminded!!!"));
 	}
@@ -65,7 +61,6 @@ public class UniqueCharacterCounterTest {
 	@Test
 	void givenNonLetterWord_whenCharCounter_thenResult() {
 		Map<Character, Integer> expected = new LinkedHashMap<>();
-		{
 			expected.put('@', 1);
 			expected.put('#', 4);
 			expected.put('$', 2);
@@ -73,7 +68,6 @@ public class UniqueCharacterCounterTest {
 			expected.put('&', 2);
 			expected.put('*', 2);
 			expected.put('(', 2);
-		}
 
 		assertEquals(expected, uniqueCharCounter.countChars("@##$^#&*((*#&$"));
 	}
@@ -81,7 +75,6 @@ public class UniqueCharacterCounterTest {
 	@Test
 	void givenText_whenCharCounter_thenResult() {
 		Map<Character, Integer> expected = new LinkedHashMap<>();
-		{
 			expected.put('h', 1);
 			expected.put('e', 1);
 			expected.put('l', 3);
@@ -90,7 +83,6 @@ public class UniqueCharacterCounterTest {
 			expected.put('w', 1);
 			expected.put('r', 1);
 			expected.put('d', 1);
-		}
 
 		assertEquals(expected, uniqueCharCounter.countChars("hello world"));
 	}
@@ -98,7 +90,6 @@ public class UniqueCharacterCounterTest {
 	@Test
 	void givenTextWithSymbols_whenCharCounter_thenResult() {
 		Map<Character, Integer> expected = new LinkedHashMap<>();
-		{
 			expected.put('1', 1);
 			expected.put(')', 1);
 			expected.put('*', 2);
@@ -111,7 +102,6 @@ public class UniqueCharacterCounterTest {
 			expected.put('r', 1);
 			expected.put('d', 1);
 			expected.put('!', 3);
-		}
 
 		assertEquals(expected, uniqueCharCounter.countChars("1)**hello world!!!"));
 	}
@@ -119,7 +109,6 @@ public class UniqueCharacterCounterTest {
 	@Test
 	void givenTextOfNonLetters_whenCharCounter_thenEmptyText() {
 		Map<Character, Integer> expected = new LinkedHashMap<>();
-		{
 			expected.put('4', 1);
 			expected.put('3', 2);
 			expected.put('$', 2);
@@ -130,7 +119,6 @@ public class UniqueCharacterCounterTest {
 			expected.put(' ', 2);
 			expected.put(')', 1);
 			expected.put('(', 1);
-		}
 
 		assertEquals(expected, uniqueCharCounter.countChars("43$%^&* )(*&^% $%^&3"));
 	}
