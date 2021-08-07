@@ -13,7 +13,7 @@ public class UniqueCharacterCounter implements CharCounter {
 			throw new IllegalArgumentException("text cannot be null.");
 		}
 
-		return text.chars().mapToObj(e -> (char) e).collect(Collectors.toList()).stream().collect(Collectors
+		return text.chars().mapToObj(e -> (char) e).collect(Collectors
 				.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.reducing(0, e -> 1, Integer::sum)));
 	}
 }
