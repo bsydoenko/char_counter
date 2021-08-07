@@ -1,6 +1,5 @@
 package ua.com.foxminded.charcounter;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -14,11 +13,7 @@ public class UniqueCharacterCounter implements CharCounter {
 			throw new IllegalArgumentException("text cannot be null.");
 		}
 
-		ArrayList<Character> chars = new ArrayList<>(text.chars().mapToObj(e -> (char) e).collect(Collectors.toList()));
-
-		Map<Character, Integer> result = chars.stream().collect(Collectors.groupingBy(Function.identity(),
-				LinkedHashMap::new, Collectors.reducing(0, e -> 1, Integer::sum)));
-
-		return result;
+		return text.chars().mapToObj(e -> (char) e).collect(Collectors.toList()).stream().collect(Collectors
+				.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.reducing(0, e -> 1, Integer::sum)));
 	}
 }

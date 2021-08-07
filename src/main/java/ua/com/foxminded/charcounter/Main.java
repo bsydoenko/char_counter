@@ -28,7 +28,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-		
+
 		CharCounter charCounter = new CacheDecorator(new UniqueCharacterCounter());
 
 		while (true) {
@@ -43,10 +43,9 @@ public class Main {
 			}
 		}
 	}
-	
+
 	private static void printResult(Map<Character, Integer> result) {
-		for (Entry<Character, Integer> entry : result.entrySet())
-		{
+		for (Entry<Character, Integer> entry : result.entrySet()) {
 			System.out.println("\"" + entry.getKey() + "\"" + " - " + entry.getValue());
 		}
 	}

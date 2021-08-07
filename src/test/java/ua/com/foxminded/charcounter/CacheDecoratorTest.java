@@ -13,14 +13,14 @@ class CacheDecoratorTest {
 
 	@Mock
 	CharCounter charCounter;
-	
+
 	@InjectMocks
 	CacheDecorator cacheDecorator;
-	
+
 	@Test
-	void givenTextTwice_whenCachedCharCounter_thenCharCounterCalledOnce() {
+	void givenTextTwice_whenCharCounter_thenCharCounterCalledOnce() {
 		String testString = "Hello world!!!";
-		
+
 		cacheDecorator.countChars(testString);
 		cacheDecorator.countChars(testString);
 		verify(charCounter).countChars(testString);
